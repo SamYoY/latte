@@ -1,0 +1,15 @@
+@import './config/reset.scss';
+@import './config/mixin.scss';
+@import './config/base.scss';
+
+.k-rz-platform-container {
+  background-color: #f7f7fa;
+  height: 100vh;
+  font-size: rem(30);
+}
+
+.k-rz-platform-content {
+  padding: 0 rem(30);
+}
+
+

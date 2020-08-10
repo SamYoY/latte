@@ -1,0 +1,70 @@
+@import './config/reset.scss';
+@import './config/mixin.scss';
+@import './config/base.scss';
+
+.za-market-login {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  height: auto;
+  width: 100%;
+  padding: rem(30);
+  background-color: $color-white;
+
+  .login-title {
+    font-size: rem(30);
+    color: $color-333;
+    font-weight: 600;
+    text-align: center;
+    margin-top: rem(20);
+  }
+  .login-content {
+    margin-top: rem(30);
+    height: rem(100);
+
+    .login-input-title {
+      margin-top: rem(20);
+      color: $color-666;
+    }
+
+    .login-input {
+      margin-top: rem(20);
+      padding: rem(8);
+      border: 1px solid $color-999;
+    }
+
+    .login-verifiedcode {
+      display: flex;
+      flex-direction: row;
+
+      .verified-btn {
+        width: rem(260);
+        margin-top: rem(20);
+        margin-left: rem(30);
+        align-items: center;
+        justify-items: center;
+        text-align: center;
+        border-radius: rem(8);
+        color: $color-666;
+        background-color: $color-white;
+        border: 1px solid $sub-theme-bg-color;
+      }
+    }
+  }
+  .login-bottom {
+    margin-top: rem(36);
+    display: flex;
+    justify-content: space-between;
+    .login-btn {
+      width: rem(300);
+      height: rem(60);
+    }
+  }
+
+  .login-forget {
+    margin-top: rem(20);
+    text-align: right;
+    color: $color-red-2nd;
+  }
+}

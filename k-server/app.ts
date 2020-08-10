@@ -4,7 +4,7 @@ const KoaEjs = require('koa-ejs');
 const KoaStatic = require('koa-static');
 const Router = require('./route');
 const { devMiddleware, hotMiddleware } = require('koa-webpack-middleware');
-const config = require('../k-webppack/config');
+const config = require('../k-webpack/config');
 const proxyMiddle = require('../k-server/utils/proxy.middleware.js');
 
 const path = require('path');
@@ -15,10 +15,8 @@ const app = new Koa();
 // global variable
 // global.DEPLOY_ENV = process.env.DEPLOY_ENV;
 console.log('process.env.DEPLOY_ENV:', process.env.DEPLOY_ENV);
-console.log('process.env.DEPLOY_ENV:', process.env.DEPLOY_ENV);
 if (process.env.DEPLOY_ENV === 'development') {
-  console.log('process.env.DEPLOY_ENV:', process.env.DEPLOY_ENV);
-  const webpackconfig = require('../k-webppack/build/webpack.dev.config.js');
+  const webpackconfig = require('../k-webpack/build/webpack.dev.config.js');
   const compiler = Webpack(webpackconfig);
   // webpack dev build
   app.use(devMiddleware(compiler, {
