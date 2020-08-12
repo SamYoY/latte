@@ -34,10 +34,10 @@ if (process.env.DEPLOY_ENV === 'development') {
     proxyMiddle(app, config.dev.proxyTable);
   }
 }
-
+console.log(`ejs path:${__dirname}/view`);
 // ejs template
 KoaEjs(app, {
-  root: path.join(__dirname, 'k-server/view'),
+  root: path.join(__dirname, '/view'),
   layout: false,
   viewExt: 'html',
   cache: false,
@@ -46,6 +46,7 @@ KoaEjs(app, {
 
 // static file path
 app.use(KoaStatic('./public'));
+app.use(KoaStatic('../dist'));
 
 // router
 app.use(Router.routes());

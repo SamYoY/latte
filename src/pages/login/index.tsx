@@ -8,6 +8,7 @@ import {
 } from '../../redux/actions/loginAction';
 
 import {
+  List,
   InputItem,
   Button
 } from 'antd-mobile';
@@ -48,63 +49,62 @@ function LoginWrapper(props: any) {
 
   return (
     <div className="za-market-login">
-      <div className="login-title">登录</div>
-      <div className="login-content">
-        <p className="login-input-title">用户名</p>
+      <List>
+        <List.Item>
+          <div className="login-title">登录</div>
+        </List.Item>
         <InputItem
-          className="login-input"
           value={loginName}
           onChange={onLoginNameChange}
-        />
-      </div>
-      <div className="login-content">
-        <p className="login-input-title">密码</p>
+        >
+          用户名
+        </InputItem>
         <InputItem
           className="login-input"
           type="password"
           value={loginPwd}
           onChange={onPasswordChange}
-        />
-      </div>
-      <div className="login-content">
-        <p className="login-input-title">手机号码</p>
+        >
+          密码
+        </InputItem>
         <InputItem
           className="login-input"
           type="phone"
           value={userPhone}
           onChange={onPhoneChange}
-        />
-      </div>
-      <div className="login-content">
-        <p className="login-input-title">验证码</p>
-        <div className="login-verifiedcode">
+        >
+          手机号码
+        </InputItem>
+        {/* <div className="login-verifiedcode">
           <InputItem
             className="login-input"
             value={verifiedCode}
             onChange={onVeriCodeChange}
           />
           <button className="verified-btn">验证码</button>
+        </div> */}
+        <div className="login-bottom">
+          <Button
+            type="primary"
+            className="login-btn"
+            onClick={onLoginIn}
+          >
+            登录
+          </Button>
+          <Button
+            type="primary"
+            className="login-btn"
+            onClick={onRegisterUser}
+          >
+            注册
+          </Button>
         </div>
-      </div>
-      <div className="login-bottom">
-        <Button
-          className="login-btn"
-          onClick={onLoginIn}
+        <div className="login-forget"
+          onClick={onForgetPwd}
         >
-          登录
-        </Button>
-        <Button
-          className="login-btn"
-          onClick={onRegisterUser}
-        >
-          注册
-        </Button>
-      </div>
-      <div className="login-forget"
-        onClick={onForgetPwd}
-      >
-        <span>忘记密码</span>
-      </div>
+          <span>忘记密码</span>
+        </div>
+      </List>
     </div>
   )
 }

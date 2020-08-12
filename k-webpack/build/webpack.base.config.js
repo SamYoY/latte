@@ -8,8 +8,9 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, '../../dist'),
-    filename:'js/[name].[hash:8].js',
-    chunkFilename:'js/[name].[hash:8].js'
+    // publicPath: '/dist/',
+    filename:'js/[name].js',
+    chunkFilename:'js/[name].js'
   },
   resolve: {
     extensions: ['.js', '.ts', '.tsx'],
@@ -42,7 +43,7 @@ module.exports = {
       },
       {
         test: /\.(css)$/,
-        use: ['style-loader', 'css-loader'],
+        use: ['style-loader', 'css-loader', 'postcss-loader'],
       },
       {
         test: /\.(jpe?g|png|gif|svg)$/i,
