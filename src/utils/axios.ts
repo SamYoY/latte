@@ -7,11 +7,9 @@ const axiosAllRequest = async () => {
 // 同步请求、异步请求
 const axiosRequest = async (req: any) => {
   const { url, method = 'get', params = null, data = null } = req;
-  return axios(
+  console.log('axios data', data);
+  return axios.post(url,
     {
-      url,
-      method,
-      params,
       data,
     }
   ).then((res) => {

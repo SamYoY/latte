@@ -2,6 +2,7 @@ const Webpack = require('webpack');
 const Koa = require('koa2');
 const KoaEjs = require('koa-ejs');
 const KoaStatic = require('koa-static');
+const KoaBody = require('koa-body');
 const Router = require('./route');
 const { devMiddleware, hotMiddleware } = require('koa-webpack-middleware');
 const config = require('../k-webpack/config');
@@ -11,7 +12,9 @@ const path = require('path');
 
 // init app
 const app = new Koa();
-
+const koaBody = KoaBody({
+  multipart: true  // 允许上传多个文件
+});
 // global variable
 // global.DEPLOY_ENV = process.env.DEPLOY_ENV;
 console.log('process.env.DEPLOY_ENV:', process.env.DEPLOY_ENV);
@@ -34,7 +37,7 @@ if (process.env.DEPLOY_ENV === 'development') {
     proxyMiddle(app, config.dev.proxyTable);
   }
 }
-console.log(`ejs path:${__dirname}/view`);
+
 // ejs template
 KoaEjs(app, {
   root: path.join(__dirname, '/view'),
@@ -46,7 +49,9 @@ KoaEjs(app, {
 
 // static file path
 app.use(KoaStatic('./public'));
-app.use(KoaStatic('../dist'));
+
+// koa body
+app.use(koaBody);
 
 // router
 app.use(Router.routes());
