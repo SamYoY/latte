@@ -48,7 +48,7 @@ function LoginWrapper(props: any) {
   }, [verifiedCode]);
 
   return (
-    <div className="za-market-login">
+    <div className="zr-platform">
       <List>
         <List.Item>
           <div className="login-title">登录</div>
