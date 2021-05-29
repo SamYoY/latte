@@ -1,7 +1,8 @@
 import React from 'react';
+import { Button } from 'antd';
 
 export default () => {
     return (
-        <span>test</span>
+        <Button>test</Button>
     )
 }
